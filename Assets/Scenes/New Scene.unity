@@ -410,7 +410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -20}
+  m_AnchoredPosition: {x: 10, y: -60}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &803792476
@@ -1716,7 +1716,7 @@ MonoBehaviour:
   bullet: {fileID: 1093939065876109134, guid: fd72a7d8471334aa995c8b20cad380b3, type: 3}
   mainCamera: {fileID: 1081496748}
   spawnBullet: {fileID: 956725801}
-  shootForce: 100
+  shootForce: 50
   spread: 0
 --- !u!1001 &4353313814549718531
 PrefabInstance:
@@ -1999,7 +1999,7 @@ MonoBehaviour:
   bullet: {fileID: 2830215176457207756, guid: 45e66331aab8e4114b6de957943b7277, type: 3}
   mainCamera: {fileID: 1081496748}
   spawnBullet: {fileID: 2015762105}
-  shootForce: 20
+  shootForce: 100
   spread: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -4,16 +4,33 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float bulletLife = 3;
+    public float speed = 10f; // Скорость пули
+    public float damage = 20f; // Урон пули
 
-    private void Awake()
+    // Метод, вызываемый при столкновении с другим объектом
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject, bulletLife);
+        // Проверка, является ли объект зомби
+        if (other.gameObject.CompareTag("Zombie"))
+        {
+            // Получаем скрипт здоровья зомби
+            ZombieHealth zombieHealth = other.gameObject.GetComponent<ZombieHealth>();
+
+            // Если скрипт найден, наносим урон зомби
+            if (zombieHealth != null)
+            {
+                zombieHealth.TakeDamage(damage);
+            }
+
+            // Уничтожаем пулю
+            Destroy(gameObject);
+        }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    // Метод для движения пули
+    private void Update()
     {
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 }
+
