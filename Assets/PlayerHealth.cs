@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealthHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     public float health = 100f;
 
@@ -10,10 +10,10 @@ public class PlayerHealthHealth : MonoBehaviour
     {
         health -= amount;
 
-        // Проверка, жив ли зомби
+        // Проверка, жив ли игрок
         if (health <= 0)
         {
-            // Уничтожаем зомби
+            // Уничтожаем игрока
             Destroy(gameObject);
         }
     }

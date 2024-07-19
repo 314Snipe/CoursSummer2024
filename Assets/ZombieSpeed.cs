@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class ZombieSpeed : MonoBehaviour
 {
-// Цель к которой будем двигаться
-public Transform target;
+    public GameObject player; // Ссылка на объект игрока
+    public float speed = 5f; // Скорость движения
+    public float rotationSpeed = 5f; // Скорость поворота
 
-// Скорость персонажа в секунду
-public float speed;
+    private Rigidbody rb; // Компонент Rigidbody
 
-void Update()
-{
-    // Размер шага равен скорость * время кадра.
-    float step = speed * Time.deltaTime;
+    void Start()
+    {
+        // Получаем компонент Rigidbody
+        rb = GetComponent<Rigidbody>();
+    }
 
-    // Переместите нашу позицию на шаг ближе к цели.
-    transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-}
+    void FixedUpdate()
+    {
+        // Проверяем, найден ли объект игрока
+        if (player != null)
+        {
+            // Получаем вектор направления движения к игроку
+            Vector3 direction = player.transform.position - transform.position;
+
+            // Нормализуем вектор направления
+            direction.Normalize();
+
+            // Перемещаем зомби в направлении игрока
+            rb.velocity = direction * speed;
+        }
+    }
 }
